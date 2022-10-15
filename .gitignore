@@ -40,4 +40,4 @@ __pycache__/*
 static/qrcode/*
 
 #audio files
-/classification/*.wav
+classification/*.wav
