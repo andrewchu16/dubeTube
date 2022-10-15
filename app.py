@@ -52,6 +52,7 @@ def video_upload() -> str:
 def watch() -> str:
     v_id = request.args.get("id")
     print(video.find_by_id(v_id), file=sys.stdout)
+    video.increase_views(v_id)
     return render_template("video.html", vid=video.find_by_id(v_id), qrcode_generator=qrcode_generator)
 
 @app.route("/search", methods=["GET"])

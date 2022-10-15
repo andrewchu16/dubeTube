@@ -27,6 +27,10 @@ def find_by_id(v_id: str):
 def get_all_videos() -> list:
     return videos
 
+def increase_views(v_id: str):
+    video = find_by_id(v_id)
+    video.views += 1
+
 def convert_to_dict(v_id: str) -> dict:
     video = find_by_id(v_id)
     return_dict = {
