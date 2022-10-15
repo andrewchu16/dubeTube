@@ -427,4 +427,5 @@ input:focus, button {
 .github_icon {
     width: 80px;
     height: 75px;
+    background-color: transparent;
 }
