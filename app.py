@@ -52,10 +52,8 @@ def watch() -> str:
 @app.route("/search", methods=["GET"])
 def search() -> str:
     query = request.args.get("query")
-    if query:
-        return query
-    else:
-        return redirect()
+
+    return query
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:
