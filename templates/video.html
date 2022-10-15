@@ -29,26 +29,19 @@ Views: {{ vid.views }} <br>
 {{ vid.summary }}
     </div>
 </details>
+<details>
+    <summary>Comments</summary>
+{% set count = 0 %}
 {% for comment in vid.comments %}
+    {% with index=loop.index %}
     {% include "includes/comment.html" %}
+    {% endwith %}
+    {% set count = (count + 1) %}
 {% endfor %}
+</details>
 <form id="comment-box" class="comment-box" id="comment-box" method="POST">
     <input type="text" placeholder="Displayed Name" name="username">
     <input type="text" placeholder="Write your comment here!" name="message">
     <button type = "submit">Post!</button>
 </form>
-<!--<script type="text/javascript">
-    $(document).on('submit','#comment-box',function(e)
-                   {
-      e.preventDefault();
-      $.ajax({
-        type:'POST',
-        url:'/watch',
-        data:{
-          username:$("#username").val(),
-          message:$("message").val()
-        },
-      })
-    });
-</script> -->
 {% endblock %}

@@ -19,7 +19,7 @@ class Video:
         self.transcript = transcript
         self.summary = summary
         
-    def sendMsg(self, username, message):
+    def send_message(self, username, message):
         self.comments.append(Comment(username, message))
 
 def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list, transcript: str, summary: str):

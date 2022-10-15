@@ -17,6 +17,7 @@ body, * {
 
 body {
     margin: 0;
+    background-color: var(--htv-dark-purple);
 }
 
 button {
@@ -61,7 +62,6 @@ video {
     position: absolute;
     display: inline-block;
     width: calc(100% - 200px);
-    height: 100%;
     overflow: visible;
 }
 
@@ -272,3 +272,11 @@ input:focus, button {
     background: var(--htv-dark-purple);
 }
 
+.odd-shade {
+    background-color: var(--htv-black);
+    padding: 10px;
+}
+
+.even-shade {
+    padding: 10px;
+}

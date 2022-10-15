@@ -1,3 +1,15 @@
+{% if index % 2 == 1 %}
+<div class="odd-shade">
 {{ comment.username }}
 {{ comment.timestr }}
+{{ comment.user }}:
 {{ comment.message }}
+</div>
+{% else %}
+<div class="even-shade">
+{{ comment.username }}
+{{ comment.timestr }}
+{{ comment.user }}:
+{{ comment.message }}
+</div>
+{% endif %}

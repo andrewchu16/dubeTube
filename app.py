@@ -70,6 +70,12 @@ def watch() -> str:
     v_id = request.args.get("id")
     video.increase_views(v_id)
     vid = video.find_by_id(v_id)
+
+    if (request.method == "POST"):
+        name = request.form.get("username")
+        msg = request.form.get("message")
+        vid.send_message(name, msg)
+        
     response = make_response(render_template("video.html", vid=vid, qrcode_generator=qrcode_generator))
     cookies = None
     if request.cookies.get('watched videos') is not None:
@@ -80,12 +86,6 @@ def watch() -> str:
         cookies.append(tag)
     while len(cookies) > MAXIMUM_COOKIE_COUNT:
         cookies.pop(0)
-
-    if (request.method == "POST"):
-        name = request.form.get("username")
-        msg = request.form.get("message")
-
-        vid.sendMsg(name, msg)
 
     response.set_cookie('watched videos', json.dumps(cookies))
     return response
