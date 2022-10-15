@@ -1,6 +1,6 @@
 from datetime import date
 from flask import Flask, render_template, request, url_for, redirect, make_response
-from Algorithm import recommendations
+import Algorithm
 import os
 import qrcode_generator
 import search
@@ -22,7 +22,7 @@ def index() -> str:
         cookies = json.loads(request.cookies.get('watched videos'))
     else:
         cookies = []
-    videos = recommendations.run_dubeTube_algorithm(video.get_all_videos(), cookies)
+    videos = Algorithm.recommendations.run_dubeTube_algorithm(video.get_all_videos(), cookies)
     return render_template("index.html", videos=video.get_all_videos())
 
 @app.route("/upload", methods=["GET"])
@@ -87,6 +87,10 @@ def search_site() -> str:
         query = query[0:MAX_SEARCH_CHARS]
     print(search)
     return render_template("search.html", results=search.search_by_title(video.get_all_videos(), query))
+
+@app.route("/tag/<tag_name>")
+def get_tags(tag_name):
+    return render_template("tag_page.html", tag_name=tag_name, vids=video.get_videos_with_tag(tag_name))
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:

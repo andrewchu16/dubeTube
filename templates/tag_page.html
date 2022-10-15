@@ -1,0 +1,10 @@
+
+{% extends "default.html" %}
+{% block title %}{{ tag_name }}{% endblock %}
+{% block content %}
+<div class="video-grid">
+    {% for video in vids %}
+    {% include "includes/video-card.html" %}
+    {% endfor %}
+</div>
+{% endblock %}

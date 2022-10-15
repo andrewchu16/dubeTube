@@ -46,3 +46,10 @@ def convert_to_dict(v_id: str) -> dict:
         "tags": video.tags
     }
     return return_dict
+
+def get_videos_with_tag(tag_name):
+    videos_with_tag = []
+    for video in videos:
+        if tag_name in video.tags:
+            videos_with_tag.append(video)
+    return videos_with_tag
