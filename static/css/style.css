@@ -193,3 +193,8 @@ input:focus, button {
     background-color: var(--htv-dark-green);
     display: inline-block;
 }
+
+.transcript {
+    padding: 10px;
+    background-color: var(--htv-dark-green)
+}
