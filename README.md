@@ -5,7 +5,7 @@ HTV 2022
 Run `pip install -r requirements.txt` to install all the dependecies  
 ## Usage
 1. Run `set FLASK_APP=name`
-2. Run [`app.py`](./app.py)
+2. Run `flask run`
 
 ## Inspiration
 
