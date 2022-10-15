@@ -15,12 +15,31 @@ API_KEY = os.getenv("API_KEY")
 
 BASE_TAG_ACCEPTANCE = 0.2
 PROMPT_FILE = "./classification/examples.txt"
+SUMMARY_FILE = "./classification/summary.txt"
 
 def classify(file_path):
 
     video = VideoFileClip(file_path)
     video.audio.write_audiofile(AUDIO_WAV)
     transcript = transcribe_audio(AUDIO_WAV)
+
+    co = cohere.Client(API_KEY)
+    summary_prompt = ""
+    with open(SUMMARY_FILE, "r") as summary_file:
+        summary_prompt += "".join(summary_file.readlines())
+    summary_prompt += "Transcript: " + transcript.rstrip() + "\nSummary: "
+
+    # if temperature goes any higher or lower than 0.5, it doesn't work as well
+    summary_generation = co.generate(
+        model = 'medium',
+        prompt = summary_prompt,
+        stop_sequences = ["--"],
+        max_tokens = 50,
+        num_generations = 1,
+        temperature = 0.5
+    )
+    print(summary_generation)
+    summary = summary_generation.generations[0].text.rstrip("--")
     
     if (transcript == ""):
         return ["No Audio"]
@@ -32,7 +51,6 @@ def classify(file_path):
             prompts.append(Example(lines[i].rstrip(), lines[i+1].rstrip()))
 
     labels = []
-    co = cohere.Client(API_KEY)
     classifications = co.classify(
         model = "medium",
         inputs=[transcript],
@@ -42,8 +60,8 @@ def classify(file_path):
     for item in classifications.classifications[0].confidence:
         if item.confidence >= BASE_TAG_ACCEPTANCE:
             labels.append(item.label)
-    print(labels[0])
-    return labels
+
+    return transcript, summary, labels
 
 
 

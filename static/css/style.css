@@ -222,6 +222,11 @@ input:focus, button {
     display: inline-block;
 }
 
+.transcript {
+    padding: 10px;
+    background-color: var(--htv-dark-green)
+}
+
 .navbar.tag {
     display: block !important;
 }

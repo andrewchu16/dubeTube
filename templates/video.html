@@ -1,6 +1,9 @@
 {% extends "default.html" %}
 {% block title %}{{ vid.title }}{% endblock %}
 {% block content %}
+<h1>
+{{ vid.title }}
+</h1>
 <video controls>
     <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
 </video><br>
@@ -13,5 +16,17 @@ Views: {{ vid.views }} <br>
 <details>
     <summary>Expand for QR code</summary>
     <img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}">
+</details>
+<details>
+    <summary>Transcript</summary>
+    <div class="transcript">
+{{ vid.transcript }}
+    </div>
+</details>
+<details>
+    <summary>Summary</summary>
+    <div class="transcript">
+{{ vid.summary }}
+    </div>
 </details>
 {% endblock %}
