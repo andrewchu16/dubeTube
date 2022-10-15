@@ -42,10 +42,11 @@ def video_upload() -> str:
     counter += 1
     return render_template("upload_success.html")
 
-@app.route("watch", methods=["GET"])
+@app.route("/watch", methods=["GET"])
 def watch() -> str:
     v_id = request.args.get("id")
-    return render_template("video.html" video=video.get.find_by_id(v_id))
+    print(video.find_by_id(v_id), file=sys.stdout)
+    return render_template("video.html", vid=video.find_by_id(v_id))
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:

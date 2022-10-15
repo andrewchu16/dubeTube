@@ -19,7 +19,7 @@ class Video:
 def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list):
     videos.append(Video(video_id, thumbnail, extension, title, author, date, tags))
 
-def find_by_id(v_id: int):
+def find_by_id(v_id: str):
     for video in videos:
         if video.id == v_id:
             return video
@@ -27,7 +27,7 @@ def find_by_id(v_id: int):
 def get_all_videos() -> list:
     return videos
 
-def convert_to_dict(v_id: int) -> dict:
+def convert_to_dict(v_id: str) -> dict:
     video = find_by_id(v_id)
     return_dict = {
         "id": video.id,
