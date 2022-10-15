@@ -14,4 +14,26 @@ Views: {{ vid.views }} <br>
     <summary>Expand for QR code</summary>
     <img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}">
 </details>
+{% for comment in vid.comments %}
+    {% include "includes/comment.html" %}
+{% endfor %}
+<form id="comment-box" class="comment-box" id="comment-box" method="get">
+    <input type="text" placeholder="Displayed Name" name="username">
+    <input type="text" placeholder="Write your comment here!" name="message">
+    <button type = "submit">Post!</button>
+</form>
+<script type="text/javascript">
+    $(document).on('submit','#comment-box',function(e)
+                   {
+      e.preventDefault();
+      $.ajax({
+        type:'POST',
+        url:'/watch',
+        data:{
+          username:$("#username").val(),
+          message:$("message").val()
+        },
+      })
+    });
+</script>
 {% endblock %}

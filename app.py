@@ -60,8 +60,9 @@ def video_upload() -> str:
         return render_template("upload_success.html")
     return render_template("upload_fail.html")
 
-@app.route("/watch", methods=["GET"])
+@app.route("/watch", methods=["GET", "POST"])
 def watch() -> str:
+        
     v_id = request.args.get("id")
     video.increase_views(v_id)
     vid = video.find_by_id(v_id)
@@ -75,7 +76,12 @@ def watch() -> str:
         cookies.append(tag)
     while len(cookies) > MAXIMUM_COOKIE_COUNT:
         cookies.pop(0)
-    print(cookies)
+
+    if (request.method == "GET"):
+        name = request.form.get("username")
+        msg = request.form.get("message")
+
+        vid.sendMsg(name, msg)
 
     response.set_cookie('watched videos', json.dumps(cookies))
     return response
