@@ -34,6 +34,10 @@ button:hover {
     font-size: 0.9rem;
 }
 
+input[type=text] {
+    color: black
+}
+
 input[name=query], button {
     color: var(--htv-white);
     background-color: var(--htv-dark-purple);
