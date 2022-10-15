@@ -32,7 +32,9 @@ def video_upload() -> str:
     extension = (video_file.content_type).split('/')[1]
     video_file.save(f"{VIDEO_FOLDER}/{counter}.{extension}")
     
+    print(f"{VIDEO_FOLDER}/{counter}.{extension}", file=sys.stdout)
     tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
+    
     if (tags[0] != "Not Nature"):
         thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
         video.add_video(

@@ -7,13 +7,13 @@ from cohere.classify import Example
 from moviepy.editor import VideoFileClip
 
 # change the file path later
-AUDIO_WAV = "audio.wav"
+AUDIO_WAV = "./classification/audio.wav"
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 BASE_TAG_ACCEPTANCE = 0.2
-PROMPT_FILE = "examples.txt"
+PROMPT_FILE = "./classification/examples.txt"
 
 def classify(file_path):
 
