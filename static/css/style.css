@@ -262,6 +262,24 @@ input:focus, button {
     .video-grid {
         grid-template-columns: repeat(1, 1fr [col-start]);
     }
+
+    .navbar, .header {
+        display: none;
+    }
+
+    .content {
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+
+    .content video {
+        width: 100%;
+    }
+
+    .content details, .content form {
+        display: none;
+    }
 } 
 
 .tag {
@@ -295,7 +313,6 @@ input:focus, button {
     display: inline-block;
 }
 
-
 .tags .tag {
     border-radius: 12px;
     padding: 12px 18px;
@@ -304,23 +321,20 @@ input:focus, button {
     display: block;
 }
 
-/* width */
+/* scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: var(--htv-black);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--htv-dark-purple);
     border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--htv-dark-purple);
 }
@@ -343,7 +357,7 @@ input:focus, button {
     width: 60%;
     aspect-ratio: 16/9;
 
-   margin-left: auto;
+    margin-left: auto;
     margin-right: auto; 
     object-fit: contain;
 
@@ -351,7 +365,7 @@ input:focus, button {
 }
 
 .thumbnail-input-container {
-    padding-top:20px;
+    padding-top: 20px;
 }
 
 .thumbnail-input-wrapper {
@@ -378,6 +392,7 @@ input:focus, button {
     margin-left:auto;
     margin-right:auto;
 }
+
 .real-submit-button {
     padding-top:5px;
     padding-bottom:5px;
