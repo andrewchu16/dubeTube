@@ -24,7 +24,7 @@ def index() -> str:
     else:
         cookies = []
     videos = Algorithm.recommendations.run_dubeTube_algorithm(video.get_all_videos(), cookies)
-    return render_template("index.html", videos=video.get_all_videos())
+    return render_template("index.html", videos=videos)
 
 @app.route("/upload", methods=["GET"])
 def upload() -> str:

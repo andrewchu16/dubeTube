@@ -70,8 +70,8 @@ def search_by_tags(video_list, tag_list):
 
     sorted_videos = []
     for index, next_video in enumerate(video_list):
-        union = set(tag_list + next_video.tags)
-        sorted_videos.append((len(union), index))
+        intersection = set(tag_list).intersection(set(next_video.tags))
+        sorted_videos.append((len(intersection), index))
 
     sorted_videos.sort()
     sorted_videos.reverse()

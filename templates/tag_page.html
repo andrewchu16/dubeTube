@@ -2,7 +2,7 @@
 {% extends "default.html" %}
 {% block title %}{{ tag_name }}{% endblock %}
 {% block content %}
-<h2>{{ tag_name }}</h2>
+<h2 class="search-key">{{ tag_name }}</h2>
 <div class="video-grid">
     {% for video in vids %}
     {% include "includes/video-card.html" %}
