@@ -1,0 +1,11 @@
+
+{% extends "default.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+{{tag}}
+<div class="video-grid">
+    {% for video in results %}
+        {% include "includes/video-card.html" %}
+    {% endfor %}
+</div>
+{% endblock %}

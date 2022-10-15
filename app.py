@@ -88,6 +88,11 @@ def search_site() -> str:
     print(search)
     return render_template("search.html", results=search.search_by_title(video.get_all_videos(), query))
 
+@app.route("/tag/<tag>", methods=["GET"])
+def filter_tag(tag) -> str:
+    return render_template("tag_page.html", tag = tag)
+
+
 @app.errorhandler(404)
 def page_not_found(e) -> str:
     return render_template("404.html")
