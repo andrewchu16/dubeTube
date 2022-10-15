@@ -81,7 +81,7 @@ def watch() -> str:
     while len(cookies) > MAXIMUM_COOKIE_COUNT:
         cookies.pop(0)
 
-    if (request.method == "GET"):
+    if (request.method == "POST"):
         name = request.form.get("username")
         msg = request.form.get("message")
 
