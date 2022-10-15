@@ -1,6 +1,4 @@
-import sys
 import os
-import subprocess
 import cohere
 import speech_recognition
 
