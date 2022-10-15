@@ -3,21 +3,27 @@
 {% block content %}
 <div class="thumbnail-preview-container">
     <div class="thumbnail-preview-wrapper">
-        <img class="thumbnail-preview">
+        <img class="thumbnail-preview" id="thumbnail-preview">
     </div>
 </div>
 <div class="thumbnail-input-container">
     <form action="/video_upload" method="POST" enctype="multipart/form-data">
         <div class="thumbnail-input-wrapper">
-            <input type="file" name="video-upload" accept="video/*">
-            <input type="file" name="thumbnail-upload" accept="image/*">
+            <input type="file" name="video-upload" accept="video/*" class="file-in">
+            <input type="file" name="thumbnail-upload" accept="image/*" class="file-in" onchange="updatePreview(event)" id="thumbnail-upload">
         </div>
-        <br>
-        Title: <input type="text" name="title" id="upload-input">
-        <br>
-        Author: <input type="text" name="author" id="upload-input">
-        <br>
-        <input type="submit" value="Upload">
-        </form>
+        <div class="thumbnail-text-wrapper">
+            <br>
+            Title:&nbsp <input type="text" name="title" id="upload-input">
+            <br>
+            Author: <input type="text" name="author" id="upload-input">
+        </div>
+        <div class="submit-button-wrapper">
+            <br>
+            <div class="submit-button">
+                <input type="submit" value="Upload" class="real-submit-button">
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock %}
