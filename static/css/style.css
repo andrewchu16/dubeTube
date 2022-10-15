@@ -16,7 +16,6 @@ body, * {
 }
 
 body {
-    background-color: var(--htv-black);
     margin: 0;
 }
 
@@ -135,11 +134,14 @@ input:focus, button {
     flex-wrap: wrap;
     justify-content: center;
     grid-template-columns: repeat(4, 1fr [col-start]);
+    margin: 10px;
 }
 
 .video-tile {
     margin: 10px;
-    padding: 0 2%;
+    padding: 0 6%;
+    background-color: var(--htv-black);
+    border-radius: 12px;
 }
 
 .video-title {
@@ -171,8 +173,12 @@ input:focus, button {
 
 .metadata-wrapper {
     position: relative;
-    height: 60px;
+    height: 100px;
     overflow-x: hidden;
+}
+
+.video-tile {
+    text-decoration: none !important;
 }
 
 .video-author {
@@ -214,18 +220,20 @@ input:focus, button {
 /* one column */
 @media only screen and (max-width: 560px) {
     .video-grid {
-        grid-template-columns: repeat(3, 1fr [col-start]);
+        grid-template-columns: repeat(1, 1fr [col-start]);
     }
 } 
 
 .tag {
     background-color: var(--htv-dark-green);
-    display: inline-block;
+    padding: 2px;
+    border-radius: 2px;
+    margin: 2px;
 }
 
 .transcript {
     padding: 10px;
-    background-color: var(--htv-dark-green)
+    background-color: var(--htv-dark-green);
 }
 
 .navbar.tag {

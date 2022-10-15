@@ -5,7 +5,14 @@
         <!-- <p class="video-length">{{ videoLength }}</p> -->
     </div>
     <div class="metadata-wrapper">
-        <p class="inline-block video-author">{{ video.author }}</p>
-        <p class="inline-block video-date">{{ video.date_posted }}</p>
+        <span class="inline-block video-author">{{ video.author }}</span>
+        <span class="inline-block video-date">{{ video.date_posted }}</span>
+        <br>
+        <div>
+            <span class="inline-block">Tags:</span>
+            {% for tag in video.tags %} 
+                <span class="inline-block tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
     </div>
 </a>
