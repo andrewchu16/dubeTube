@@ -189,3 +189,7 @@ input:focus, button {
     }
 } 
 
+.tag {
+    background-color: var(--htv-dark-green);
+    display: inline-block;
+}

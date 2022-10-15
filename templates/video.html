@@ -4,6 +4,11 @@
 <video controls>
     <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
 </video><br>
+Tags: 
+{% for tag in vid.tags %}
+    {% include "includes/tag.html" %}
+{% endfor %}
+<br>
 Views: {{ vid.views }} <br>
 <details>
     <summary>Expand for QR code</summary>
