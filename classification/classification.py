@@ -38,7 +38,7 @@ def classify(file_path):
     for item in classifications.classifications[0].confidence:
         if item.confidence >= BASE_TAG_ACCEPTANCE:
             labels.append(item.label)
-    
+    print(labels[0])
     return labels
 
 
