@@ -65,7 +65,7 @@ video {
     padding-bottom: 40px;
 }
 
-.content-inner {
+.video-inner {
     margin-left: 10%;
     /* margin: auto; */
     width: 70%;
@@ -231,7 +231,7 @@ input:focus, button {
         grid-template-columns: repeat(2, 1fr [col-start]);
     }
 
-    .content-inner {
+    .video-inner {
         width: 94%;
         margin: 3%;
     }
