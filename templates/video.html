@@ -1,7 +1,7 @@
 {% extends "default.html" %}
-{% block title %}{{ video.title }}{% endblock %}
+{% block title %}{{ vid.title }}{% endblock %}
 {% block content %}
 <video>
-    <source type="video/{{ video.extension }}" src="{{ url_for('static', 'video/' ~ video.id ~ video.extension) }}">
+    <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
 </video>
 {% endblock %}
