@@ -4,6 +4,7 @@ import os
 import qrcode_generator
 import sys
 import video
+import classification
 
 counter = 0 # thing to give each video a unique name
 VIDEO_FOLDER = "static/video"
@@ -30,18 +31,22 @@ def video_upload() -> str:
     print("video", video_file.content_type, file=sys.stdout)
     extension = (video_file.content_type).split('/')[1]
     video_file.save(f"{VIDEO_FOLDER}/{counter}.{extension}")
-    thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
-    video.add_video(
-        str(counter), # id
-        f"{counter}.{thumbnail.content_type.split('/')[1]}", # thumbnail
-        extension,
-        request.form["title"], # title
-        request.form["author"], # author
-        date.today(), # date
-        [] # add tags later
-    )
-    counter += 1
-    return render_template("upload_success.html")
+    
+    tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
+    if (tags[0] != "Not Nature"):
+        thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
+        video.add_video(
+            str(counter), # id
+            f"{counter}.{thumbnail.content_type.split('/')[1]}", # thumbnail
+            extension,
+            request.form["title"], # title
+            request.form["author"], # author
+            date.today(), # date
+            tags # tags
+        )
+        counter += 1
+        return render_template("upload_success.html")
+    return render_template("upload_fail.html")
 
 @app.route("/watch", methods=["GET"])
 def watch() -> str:
