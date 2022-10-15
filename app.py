@@ -23,7 +23,7 @@ def video_upload() -> str:
     print("files", request.files, file=sys.stdout)
     print("request", request.form, file=sys.stdout)
     if ("video-upload" not in request.files) or ("thumbnail-upload" not in request.files) or ("title" not in request.form) or ("author" not in request.form):
-        return "smh not good" #TODO: create a failed template and upload from there
+        return render_template("upload_fail.html")
     video_file = request.files['video-upload']
     thumbnail = request.files['thumbnail-upload']
     print("video", video_file.content_type, file=sys.stdout)
@@ -39,4 +39,8 @@ def video_upload() -> str:
         date.today() # date
     )
     counter += 1
-    return "lol ok"
+    return render_template("upload_success.html")
+
+@app.errorhandler(404)
+def page_not_found(e) -> str:
+    return render_template("404.html")
