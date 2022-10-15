@@ -3,33 +3,33 @@
 __pycache__/*
 
 # video file extensions stolen off of wikipedia lol
-/video/*.mp4
-/video/*.mov
-/video/*.webm
-/video/*.mkv
-/video/*.flv
-/video/*.vob
-/video/*.ogv
-/video/*.ogg
-/video/*.drc
-/video/*.gif
-/video/*.gifv
-/video/*.mng
-/video/*.avi
-/video/*.avi
-/video/*.wmv
+/static/video/*.mp4
+/static/video/*.mov
+/static/video/*.webm
+/static/video/*.mkv
+/static/video/*.flv
+/static/video/*.vob
+/static/video/*.ogv
+/static/video/*.ogg
+/static/video/*.drc
+/static/video/*.gif
+/static/video/*.gifv
+/static/video/*.mng
+/static/video/*.avi
+/static/video/*.avi
+/static/video/*.wmv
 
 # image files
-/video/*jpg
-/video/*jpeg
-/video/*jfif
-/video/*exif
-/video/*tiff
-/video/*gif
-/video/*bmp
-/video/*png
-/video/*webp
-/video/*heif
+/static/video/*jpg
+/static/video/*jpeg
+/static/video/*jfif
+/static/video/*exif
+/static/video/*tiff
+/static/video/*gif
+/static/video/*bmp
+/static/video/*png
+/static/video/*webp
+/static/video/*heif
 
 # environment
 .env
