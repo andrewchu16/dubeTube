@@ -417,3 +417,14 @@ input:focus, button {
     padding-left: 30px;
     padding-top: 10px;
 }
+
+.set-bottom {
+    padding-left: 50px;
+    position: absolute;
+    bottom: 100px;
+}
+
+.github_icon {
+    width: 80px;
+    height: 75px;
+}
