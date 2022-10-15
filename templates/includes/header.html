@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="header">
     <div class="header-inner">
         <div class="logo">
@@ -5,12 +6,13 @@
                 <img class="logo-img" src="{{ url_for('static', filename='assets/logolong.png') }}">
             </a>
         </div>
-        <form class="search-bar" action="/search" method="get">
+        <form id="search-bar" class="search-bar" action="/search" method="get">
             <input type="text" placeholder="Search" name="query">
-            <input type="submit" value="???">
+            <button type="button" class="search-submit-button" onclick="submitSearch(); "><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <a href="/upload">
             <button class="upload-button">Upload</button>
         </a>
     </div>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
 </div>
