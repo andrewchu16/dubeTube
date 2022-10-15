@@ -10,6 +10,7 @@ import classification
 
 counter = 0 # thing to give each video a unique name
 VIDEO_FOLDER = "static/video"
+MAX_SEARCH_CHARS = 5
 
 app = Flask(__name__)
 
@@ -80,6 +81,8 @@ def watch() -> str:
 @app.route("/search", methods=["GET"])
 def search() -> str:
     query = request.args.get("query")
+    if len(query) > MAX_SEARCH_CHARS:
+        query = query[0:MAX_SEARCH_CHARS]
 
     return query
 
