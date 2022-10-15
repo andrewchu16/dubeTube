@@ -5,3 +5,9 @@
     --htv-black: #191820;
     --htv-white: #ffffff;
 }
+
+body, * {
+    background-color: var(--htv-black);
+    color: var(--htv-white);
+    font-family: "Source Code Pro", sans-serif;
+}
