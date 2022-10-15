@@ -21,6 +21,10 @@ body {
     display: grid;
 }
 
+input, button {
+    color: var(--htv-dark-purple);
+}
+
 .content {
     margin-right: 20px;
     background-color: var(--htv-dark-purple);
