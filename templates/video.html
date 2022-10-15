@@ -1,54 +1,61 @@
 {% extends "default.html" %}
 {% block title %}{{ vid.title }}{% endblock %}
 {% block content %}
-{% if comment_ban %}
-<div style="background-color: red">
-<h1>
-    Spam detected.
-</h1>
+<div class="video-inner">
+    {% if comment_ban %}
+    div style="background-color: red">
+    <h1>
+        Spam detected.
+    </h1>
+    </div>
+    {% endif %}
+    <h1>
+    {{ vid.title }}
+    </h1>
+    <video controls>
+        <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
+    </video>
+    <br>
+    <div class="tags">
+        <ul>
+            <li><b>Tags:</b></li>
+            {% for tag in vid.tags %}
+            <li><a class="tag" href="/tag/{{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    Views: {{ vid.views }} <br>
+    <details>
+        <summary>Expand for QR code</summary>
+        <img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}">
+    </details>
+    <details>
+        <summary>Transcript</summary>
+        <div class="transcript">
+    {{ vid.transcript }}
+        </div>
+    </details>
+    <details>
+        <summary>Summary</summary>
+        <div class="transcript">
+    {{ vid.summary }}
+        </div>
+    </details>
+    <details>
+        <summary>Comments</summary>
+    {% set count = 0 %}
+    {% for comment in vid.comments %}
+        {% with index=loop.index %}
+        {% include "includes/comment.html" %}
+        {% endwith %}
+        {% set count = (count + 1) %}
+    {% endfor %}
+    </details>
+    <form id="comment-box" class="comment-box" id="comment-box" method="POST">
+        <input type="text" placeholder="Displayed Name" name="username">
+        <input type="text" placeholder="Write your comment here!" name="message">
+        <button type = "submit">Post!</button>
+    </form>
 </div>
-{% endif %}
-<h1>
-{{ vid.title }}
-</h1>
-<video controls>
-    <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
-</video><br>
-Tags: 
-{% for tag in vid.tags %}
-    {% include "includes/tag.html" %}
-{% endfor %}
-<br>
-Views: {{ vid.views }} <br>
-<details>
-    <summary>Expand for QR code</summary>
-    <img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}">
-</details>
-<details>
-    <summary>Transcript</summary>
-    <div class="transcript">
-{{ vid.transcript }}
-    </div>
-</details>
-<details>
-    <summary>Summary</summary>
-    <div class="transcript">
-{{ vid.summary }}
-    </div>
-</details>
-<details>
-    <summary>Comments</summary>
-{% set count = 0 %}
-{% for comment in vid.comments %}
-    {% with index=loop.index %}
-    {% include "includes/comment.html" %}
-    {% endwith %}
-    {% set count = (count + 1) %}
-{% endfor %}
-</details>
-<form id="comment-box" class="comment-box" id="comment-box" method="POST">
-    <input type="text" placeholder="Displayed Name" name="username">
-    <input type="text" placeholder="Write your comment here!" name="message">
-    <button type = "submit">Post!</button>
-</form>
+
 {% endblock %}
