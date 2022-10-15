@@ -18,6 +18,7 @@ __pycache__/*
 /static/video/*.avi
 /static/video/*.avi
 /static/video/*.wmv
+/static/video/*.octet-stream
 
 # image files
 /static/video/*jpg
@@ -33,3 +34,6 @@ __pycache__/*
 
 # environment
 .env
+
+# qrcodes
+
