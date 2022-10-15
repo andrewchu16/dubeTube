@@ -44,11 +44,12 @@ button:hover {
     font-size: 0.9rem;
 }
 
-input[type=text] {
-    color: black
+.content input {
+    color: var(--htv-white);
+    background-color: var(--htv-black);
 }
 
-input[name=query], button {
+input, button {
     color: var(--htv-white);
     background-color: var(--htv-dark-purple);
     outline: none;
