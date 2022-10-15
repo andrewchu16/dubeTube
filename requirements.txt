@@ -3,3 +3,4 @@ cohere
 SpeechRecognition
 python-dotenv
 moviepy
+qrcode[pil]
