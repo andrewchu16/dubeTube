@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, url_for, redirect, make_respo
 from Algorithm import recommendations
 import os
 import qrcode_generator
+import search
 import sys
 import video
 import json
@@ -80,12 +81,12 @@ def watch() -> str:
     return response
 
 @app.route("/search", methods=["GET"])
-def search() -> str:
+def search_site() -> str:
     query = request.args.get("query")
     if len(query) > MAX_SEARCH_CHARS:
         query = query[0:MAX_SEARCH_CHARS]
-
-    return query
+    print(search)
+    return render_template("search.html", results=search.search_by_title(video.get_all_videos(), query))
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:

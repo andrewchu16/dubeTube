@@ -47,7 +47,7 @@ def search_text_ratio(query, text):
     if denominator == 0: 
         # If denominator is 0, the two strings have no compatibility
         denominator = 0.01
-    return len(query)/(len(text) - search_text(query, text))
+    return len(query)/(denominator)
 
 
 def search_by_title(video_list, query):

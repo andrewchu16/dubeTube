@@ -1,4 +1,4 @@
-from search import search
+import search
 
 BASE_TAG_ACCEPTANCE_RATE = 0.2
 
