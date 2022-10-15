@@ -31,3 +31,5 @@ __pycache__/*
 /video/*webp
 /video/*heif
 
+# environment
+.env
