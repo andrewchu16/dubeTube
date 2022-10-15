@@ -30,10 +30,9 @@ li:has(.tag) {
 }
 
 li:has(.tag):hover {
-    scale: 0.95;
+    scale: 0.95;    
     filter: brightness(0.9);
 }
-
 
 button:hover {
     scale: 0.9;
@@ -46,7 +45,10 @@ button:hover {
 
 .content input {
     color: var(--htv-white);
-    background-color: var(--htv-black);
+    background-color: var(--htv-black) !important;
+}
+.content h2 {
+    padding-left: 40px;
 }
 
 input, button {
@@ -54,6 +56,13 @@ input, button {
     background-color: var(--htv-dark-purple);
     outline: none;
     border: none;
+}
+
+.content [type="submit"] {
+    background-color: var(--htv-black);
+    margin-top: 10px;
+    border-radius: 12px;
+    padding: 8px 24px;
 }
 
 input[name=query]:focus-visible {
@@ -387,5 +396,9 @@ input:focus, button {
     height:100%;
     margin-left: auto;
     margin-right: auto;
+}
 
+.search-key {
+    padding-left: 30px;
+    padding-top: 10px;
 }
