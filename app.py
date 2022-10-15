@@ -5,8 +5,8 @@ import os
 import qrcode_generator
 import sys
 import video
-import classification
 import json
+from classification import classification
 
 counter = 0 # thing to give each video a unique name
 VIDEO_FOLDER = "static/video"

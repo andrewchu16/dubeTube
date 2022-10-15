@@ -13,7 +13,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 BASE_TAG_ACCEPTANCE = 0.2
-PROMPT_FILE = "examples.txt"
+PROMPT_FILE = "classification/examples.txt"
 
 def classify(file_path):
 
@@ -38,7 +38,7 @@ def classify(file_path):
     for item in classifications.classifications[0].confidence:
         if item.confidence >= BASE_TAG_ACCEPTANCE:
             labels.append(item.label)
-    
+    print(labels[0])
     return labels
 
 
