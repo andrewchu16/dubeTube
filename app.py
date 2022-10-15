@@ -15,8 +15,10 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index() -> str:
-    cookies = json.loads(request.cookies.get('watched videos'))
-    if cookies == None:
+    watchedVideos = request.cookies.get('watched videos')
+    if watchedVideos:
+        cookies = json.loads(watchedVideos)
+    else:
         cookies = []
     videos = recommendations.run_dubeTube_algorithm(video.get_all_videos(), cookies)
     return render_template("index.html", videos=video.get_all_videos())
