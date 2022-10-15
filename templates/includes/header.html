@@ -6,9 +6,9 @@
                 <img class="logo-img" src="{{ url_for('static', filename='assets/logolong.png') }}">
             </a>
         </div>
-        <form id="search-bar" class="search-bar" action="/search" method="get">
+        <form id="search-bar" class="search-bar" action="/search" method="get" autocomplete="off">
             <input type="text" placeholder="Search" name="query">
-            <button type="button" class="search-submit-button" onclick="submitSearch(); "><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button" class="search-submit-button" onclick="submitSearch(event); "><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <a href="/upload">
             <button class="upload-button">Upload</button>

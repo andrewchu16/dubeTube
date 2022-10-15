@@ -43,9 +43,11 @@ def video_upload() -> str:
     video_file.save(f"{VIDEO_FOLDER}/{counter}.{extension}")
     
     print(f"{VIDEO_FOLDER}/{counter}.{extension}", file=sys.stdout)
-    tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
+    transcript, summary, tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
     
     if (tags[0] != "Not Nature"):
+        if "Not Nature" in tags:
+            tags.remove("Not Nature")
         thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
         video.add_video(
             str(counter), # id
@@ -54,7 +56,9 @@ def video_upload() -> str:
             request.form["title"], # title
             request.form["author"], # author
             date.today(), # date
-            tags # tags
+            tags, # tags
+            transcript,
+            summary
         )
         counter += 1
         return render_template("upload_success.html")
