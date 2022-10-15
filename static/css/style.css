@@ -21,7 +21,7 @@ body {
     display: grid;
 }
 
-input, button {
+input[type=text], button {
     color: var(--htv-dark-purple);
 }
 
