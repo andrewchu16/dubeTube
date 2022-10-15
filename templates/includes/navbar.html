@@ -1,6 +1,10 @@
+{% set tags = ["No Audio", "Plants", "Animals"] %}
 <aside class="navbar">
     <nav>
         <ul>
+            {% for tag in tags %}
+            <li><a href="/tag/{{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
             <li>hello</li>
             <li>hi</li>
         </ul>
