@@ -24,14 +24,14 @@ def classify(file_path):
     transcript = transcribe_audio(AUDIO_WAV)
 
     co = cohere.Client(API_KEY)
-    summary_prompt = ""
+    summary_prompt = "Summarize this:\n"
     with open(SUMMARY_FILE, "r") as summary_file:
         summary_prompt += "".join(summary_file.readlines())
     summary_prompt += "Transcript: " + transcript.rstrip() + "\nSummary: "
 
     # if temperature goes any higher or lower than 0.5, it doesn't work as well
     summary_generation = co.generate(
-        model = 'medium',
+        model = 'xlarge',
         prompt = summary_prompt,
         stop_sequences = ["--"],
         max_tokens = 50,

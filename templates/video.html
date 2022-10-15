@@ -1,6 +1,13 @@
 {% extends "default.html" %}
 {% block title %}{{ vid.title }}{% endblock %}
 {% block content %}
+{% if comment_ban %}
+<div style="background-color: red">
+<h1>
+    Spam detected.
+</h1>
+</div>
+{% endif %}
 <h1>
 {{ vid.title }}
 </h1>

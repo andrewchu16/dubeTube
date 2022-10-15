@@ -1,9 +1,15 @@
 Transcript: Sleep is important for the human body as it allows the body to recuperate. Growing also occurs while the human body is asleep; therefore, missing out on sleep is highly detrimental to one's health.
-Summary: Sleep is important as it allows the body to recuperate, and grow.
+Summary: Sleep is important.
 --
 Transcript: In Canada the weather is highly unpredictable. It get extremely cold extremely fast, and snowfall has even occured in summer before.
 Summary: Canada is a cold place.
 --
 Transcript: It is important to go to school because it is a place where people go to study and gain more knowledge about the world. People go to school in order to become smarter and further their future careers.
 Summary: School is a place where people learn.
+--
+Transcript: It is more beneficial for the environment if you take the bus instead of driving a car because a bus can carry more people, thus reducing the amount of vehicles on the road.
+Summary: Buses are better for the environment than cars.
+--
+Transcript: When gutting fish it is important to not pierce the guts because it can release contaminated blood into the flesh of the fish, rendering it inedible to most humans.
+Summary: Don't pierce the guts when preparing fish.
 --

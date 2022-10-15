@@ -8,6 +8,7 @@ import sys
 import video
 import json
 import classification
+from classification import comment_classifier
 
 counter = 0 # thing to give each video a unique name
 VIDEO_FOLDER = "static/video"
@@ -71,12 +72,17 @@ def watch() -> str:
     video.increase_views(v_id)
     vid = video.find_by_id(v_id)
 
+    comment_ban = False
     if (request.method == "POST"):
         name = request.form.get("username")
         msg = request.form.get("message")
-        vid.send_message(name, msg)
+        useful_comment = comment_classifier.classify_comment(msg)
+        if useful_comment == "Useful":
+            vid.send_message(name, msg)
+        else:
+            comment_ban = True
         
-    response = make_response(render_template("video.html", vid=vid, qrcode_generator=qrcode_generator))
+    response = make_response(render_template("video.html", vid=vid, qrcode_generator=qrcode_generator, comment_ban=comment_ban))
     cookies = None
     if request.cookies.get('watched videos') is not None:
         cookies = json.loads(request.cookies.get('watched videos'))
