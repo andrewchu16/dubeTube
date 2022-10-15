@@ -1,5 +1,5 @@
 Flask
 cohere
-speech_recognition
-dotenv
+SpeechRecognition
+python-dotenv
 moviepy
