@@ -230,9 +230,14 @@ input:focus, button {
 
 .tag {
     background-color: var(--htv-dark-green);
-    padding: 2px;
-    border-radius: 2px;
-    margin: 2px;
+    text-decoration: none;
+}
+
+.navbar li:has(.tag) {
+    background-color: var(--htv-dark-green);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px 40px 15px 20px;
 }
 
 .transcript {
@@ -240,8 +245,10 @@ input:focus, button {
     background-color: var(--htv-dark-green);
 }
 
-.navbar.tag {
+.navbar .tag {
     display: block !important;
+    text-align: center;
+    margin: auto;
 }
 
 /* width */
