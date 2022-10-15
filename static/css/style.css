@@ -47,7 +47,8 @@ input[name=query]:focus-visible {
 }
 
 video {
-    width: 80%;
+    max-width: 80%;
+    max-height: 90vh;
 }
 
 .content {
@@ -230,4 +231,25 @@ input:focus, button {
 
 .navbar.tag {
     display: block !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--htv-black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--htv-dark-purple);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--htv-dark-purple);
 }
