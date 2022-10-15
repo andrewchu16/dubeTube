@@ -1,7 +1,46 @@
-from flask import Flask, render_template, url_for
+from datetime import date
+from flask import Flask, render_template, request, url_for
+import os
+import sys
+import video
+
+counter = 0 # thing to give each video a unique name
+VIDEO_FOLDER = "video"
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index() -> str:
     return render_template("index.html")
+
+@app.route("/upload", methods=["GET"])
+def upload() -> str:
+    return render_template("upload.html")
+
+@app.route("/video_upload", methods=["POST"])
+def video_upload() -> str:
+    global counter
+    print("files", request.files, file=sys.stdout)
+    print("request", request.form, file=sys.stdout)
+    if ("video-upload" not in request.files) or ("thumbnail-upload" not in request.files) or ("title" not in request.form) or ("author" not in request.form):
+        return render_template("upload_fail.html")
+    video_file = request.files['video-upload']
+    thumbnail = request.files['thumbnail-upload']
+    print("video", video_file.content_type, file=sys.stdout)
+    extension = (video_file.content_type).split('/')[1]
+    video_file.save(f"{VIDEO_FOLDER}/{counter}.{extension}")
+    thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
+    video.add_video(
+        str(counter), # id
+        f"{counter}.{thumbnail.content_type.split('/')[1]}", # thumbnail
+        extension,
+        request.form["title"], # title
+        request.form["author"], # author
+        date.today() # date
+    )
+    counter += 1
+    return render_template("upload_success.html")
+
+@app.errorhandler(404)
+def page_not_found(e) -> str:
+    return render_template("404.html")

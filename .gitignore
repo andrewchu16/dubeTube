@@ -1,1 +1,35 @@
-/__pycache__
+# cache and stuff
+*/__pycache__/*
+__pycache__/*
+
+# video file extensions stolen off of wikipedia lol
+/video/*.mp4
+/video/*.mov
+/video/*.webm
+/video/*.mkv
+/video/*.flv
+/video/*.vob
+/video/*.ogv
+/video/*.ogg
+/video/*.drc
+/video/*.gif
+/video/*.gifv
+/video/*.mng
+/video/*.avi
+/video/*.avi
+/video/*.wmv
+
+# image files
+/video/*jpg
+/video/*jpeg
+/video/*jfif
+/video/*exif
+/video/*tiff
+/video/*gif
+/video/*bmp
+/video/*png
+/video/*webp
+/video/*heif
+
+# environment
+.env

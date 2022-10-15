@@ -1,1 +1,5 @@
 Flask
+cohere
+speech_recognition
+dotenv
+moviepy
