@@ -1,6 +1,7 @@
 from datetime import date
 from flask import Flask, render_template, request, url_for
 import os
+import qrcode_generator
 import sys
 import video
 
@@ -46,7 +47,7 @@ def video_upload() -> str:
 def watch() -> str:
     v_id = request.args.get("id")
     print(video.find_by_id(v_id), file=sys.stdout)
-    return render_template("video.html", vid=video.find_by_id(v_id))
+    return render_template("video.html", vid=video.find_by_id(v_id), qrcode_generator=qrcode_generator)
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:

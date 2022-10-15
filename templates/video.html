@@ -2,6 +2,7 @@
 {% block title %}{{ vid.title }}{% endblock %}
 {% block content %}
 <video>
-    <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
+    <source type="video/{{ vid.extension }}" src="/static/video/{{vid.id}}.{{vid.extension}}">
 </video>
+<img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}"
 {% endblock %}

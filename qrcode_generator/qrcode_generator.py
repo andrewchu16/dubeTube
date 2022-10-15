@@ -1,6 +1,6 @@
 import qrcode
 
-def generate_qrcode(url):
+def generate_qrcode(url: str, id: str):
     qr = qrcode.QRCode(
         version=1,
         box_size=10,
@@ -13,7 +13,5 @@ def generate_qrcode(url):
 
 
     img = qr.make_image(fill='black', back_color='white')
-    img.save('qrcode_generator/qrcode.png')
-    return 'qrcode_generator/qrcode.png'
-
-generate_qrcode("google.com")
+    img.save(f'static/qrcode{id}.png')
+    return f'static/qrcode{id}.png'
