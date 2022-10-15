@@ -103,4 +103,10 @@ def search(video_list, query, tag_list):
         new_relevance.append(title_sorting[accumulated_scores[i][1]])
 
     return new_relevance
-    
+
+def get_tagged_videos(tag, video_list):
+    output = []
+    for vid in video_list:
+        if tag in vid.tags:
+            output.append(vid)
+    return output

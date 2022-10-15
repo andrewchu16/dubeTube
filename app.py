@@ -90,7 +90,7 @@ def search_site() -> str:
 
 @app.route("/tag/<tag>", methods=["GET"])
 def filter_tag(tag) -> str:
-    return render_template("tag_page.html", tag = tag)
+    return render_template("tag_page.html", tag = tag, results = search.get_tagged_videos(tag, video.get_all_videos()))
 
 
 @app.errorhandler(404)
