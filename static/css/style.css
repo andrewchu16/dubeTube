@@ -25,6 +25,16 @@ button {
     transition: 0.2s ease;
 }
 
+li:has(.tag) {
+    transition: 0.1s ease
+}
+
+li:has(.tag):hover {
+    scale: 0.95;
+    filter: brightness(0.9);
+}
+
+
 button:hover {
     scale: 0.9;
     filter: brightness(0.9);
