@@ -34,7 +34,7 @@ def convert_to_dict(v_id: int) -> dict:
         "title": video.title,
         "author": video.author,
         "date_posted": video.date_posted,
-        "views": video.views
+        "views": video.views,
         "likes": video.likes,
         "dislikes": video.dislikes,
         "tags": video.tags
