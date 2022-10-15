@@ -9,7 +9,9 @@
     {% include 'includes/header.html' %}
     {% include 'includes/navbar.html' %}
     <div class="content">
-        {% block content %}
-        {% endblock %}
+        <div class="content-inner">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </body>

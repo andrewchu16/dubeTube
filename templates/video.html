@@ -6,12 +6,16 @@
 </h1>
 <video controls>
     <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
-</video><br>
-Tags: 
-{% for tag in vid.tags %}
-    {% include "includes/tag.html" %}
-{% endfor %}
+</video>
 <br>
+<div class="tags">
+    <ul>
+        <li><b>Tags:</b></li>
+        {% for tag in vid.tags %}
+        <li><a class="tag" href="/tag/{{ tag }}">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 Views: {{ vid.views }} <br>
 <details>
     <summary>Expand for QR code</summary>
