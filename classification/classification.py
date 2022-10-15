@@ -20,6 +20,9 @@ def classify(file_path):
     video = VideoFileClip(file_path)
     video.audio.write_audiofile(AUDIO_WAV)
     transcript = transcribe_audio(AUDIO_WAV)
+    
+    if (transcript == ""):
+        return ["No Audio"]
 
     prompts = []
     with open(PROMPT_FILE, "r") as prompt_file:
@@ -47,5 +50,7 @@ def transcribe_audio(file_path):
     with speech_recognition.AudioFile(file_path) as audio_file:
         recognizer = speech_recognition.Recognizer()
         audio_data = recognizer.record(audio_file)
+        if (audio_data == None):
+            return ""
         auto_text = recognizer.recognize_google(audio_data)
         return auto_text
