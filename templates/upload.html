@@ -3,6 +3,9 @@
 {% block content %}
 <form action="/video_upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="video-upload" accept="video/*">
+    <input type="file" name="thumbnail-upload" accept="image/*">
+    Title: <input type="text" name="title">
+    Author: <input type="text" name="author">
     <input type="submit" value="Upload">
 </form>
 {% endblock %}
