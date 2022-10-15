@@ -37,7 +37,7 @@ __pycache__/*
 .env
 
 # qrcodes
-static/qrcode/*png
+static/qrcode/*
 
 #audio files
 classification/*.wav

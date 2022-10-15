@@ -1,10 +1,10 @@
-
+from comments.comments import Comment
 videos = []
 
 VIDEO_FOLDER = "/static/video/"
 
 class Video:
-    def __init__(self: object, video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list, transcript: str, summary: str):
+    def __init__(self: object, video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list):
         self.id = video_id
         self.thumbnail = f"{VIDEO_FOLDER}{thumbnail}"
         self.extension = extension
@@ -15,11 +15,13 @@ class Video:
         self.likes = 0
         self.dislikes = 0
         self.tags = tags
-        self.transcript = transcript
-        self.summary = summary
+        self.comments = []
+        
+    def sendMsg(self, username, message):
+        self.comments.append(Comment(username, message))
 
-def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list, transcript: str, summary: str):
-    videos.append(Video(video_id, thumbnail, extension, title, author, date, tags, transcript, summary))
+def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list):
+    videos.append(Video(video_id, thumbnail, extension, title, author, date, tags))
 
 def find_by_id(v_id: str):
     for video in videos:
@@ -45,7 +47,8 @@ def convert_to_dict(v_id: str) -> dict:
         "views": video.views,
         "likes": video.likes,
         "dislikes": video.dislikes,
-        "tags": video.tags
+        "tags": video.tags,
+        "comments": video.comments
     }
     return return_dict
 

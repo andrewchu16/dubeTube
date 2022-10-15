@@ -18,32 +18,11 @@ body, * {
 body {
     background-color: var(--htv-black);
     margin: 0;
+    display: grid;
 }
 
-button {
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-button:hover {
-    scale: 0.9;
-    filter: brightness(0.9);
-}
-
-.search-submit-button {
-    font-size: 0.9rem;
-}
-
-input[name=query], button {
-    color: var(--htv-white);
-    background-color: var(--htv-dark-purple);
-    outline: none;
-    border: none;
-}
-
-input[name=query]:focus-visible {
-    border: none !important;
-    outline: none;
+input[type=text], button {
+    color: var(--htv-dark-purple);
 }
 
 video {
@@ -60,7 +39,6 @@ video {
     display: inline-block;
     width: calc(100% - 200px);
     height: 100%;
-    overflow-y: hidden;
 }
 
 /* header */
@@ -85,20 +63,20 @@ video {
 
 .logo {
     height: 70%;
-    margin-left: 20px;
 }
 
 .logo-img {
     height: 90%;
 }
 
-input, .upload-button {
+.header * {
+    color: var(--htv-black);
     font-size: 18px;
 }
 
 .search-bar {
     display: block;
-    width: 40vw;
+
 }
 
 input:focus, button {
@@ -106,9 +84,9 @@ input:focus, button {
 }
 
 .search-bar > input, button {
-    min-height: 45px;
+    height: 45px;
     border-radius: 12px;
-    padding: 3px 12px;
+    padding: 3px 10px;
 }
 
 .search-bar > input[name="query"] {
@@ -117,29 +95,24 @@ input:focus, button {
 
 /* navbar */
 .navbar {
-    background-color: var(--htv-black);
-    height: 100vh;
-    width: 200px;
     top: 80px;
     left: 0;
     position: fixed;
     z-index: 999;
 }
 
-.navbar > nav {
-    margin-left: 10px;
-}
-
 /* Video tiles */
 .video-grid {
     display: grid;
     flex-wrap: wrap;
+    border: 1px solid white;
     justify-content: center;
     grid-template-columns: repeat(4, 1fr [col-start]);
 }
 
 .video-tile {
     margin: 10px;
+    border: 1px solid white;
     padding: 0 2%;
 }
 
@@ -151,12 +124,16 @@ input:focus, button {
 
 .thumbnail-wrapper {
     aspect-ratio: 16 / 9;
+    border: 1px solid white;
     position: relative;
 }
 
 .thumbnail-img {
     display: block;
     margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
     max-width: 100%;
     max-height: 100%;
 }
@@ -192,12 +169,6 @@ input:focus, button {
     margin-right: 20px;
 }
 
-.video-wrapper {
-    margin: auto;
-    width: 100%;
-    
-}
-
 /* three column */
 @media only screen and (max-width: 1100px) {
     .video-grid {
@@ -224,14 +195,6 @@ input:focus, button {
     display: inline-block;
 }
 
-.transcript {
-    padding: 10px;
-    background-color: var(--htv-dark-green)
-}
-
-.navbar.tag {
-    display: block !important;
-}
 
 /* width */
 ::-webkit-scrollbar {

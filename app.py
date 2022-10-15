@@ -43,11 +43,9 @@ def video_upload() -> str:
     video_file.save(f"{VIDEO_FOLDER}/{counter}.{extension}")
     
     print(f"{VIDEO_FOLDER}/{counter}.{extension}", file=sys.stdout)
-    transcript, summary, tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
+    tags = classification.classify(f"{VIDEO_FOLDER}/{counter}.{extension}")
     
     if (tags[0] != "Not Nature"):
-        if "Not Nature" in tags:
-            tags.remove("Not Nature")
         thumbnail.save(f"{VIDEO_FOLDER}/{counter}.{thumbnail.content_type.split('/')[1]}")
         video.add_video(
             str(counter), # id
@@ -56,16 +54,15 @@ def video_upload() -> str:
             request.form["title"], # title
             request.form["author"], # author
             date.today(), # date
-            tags, # tags
-            transcript,
-            summary
+            tags # tags
         )
         counter += 1
         return render_template("upload_success.html")
     return render_template("upload_fail.html")
 
-@app.route("/watch", methods=["GET"])
+@app.route("/watch", methods=["GET", "POST"])
 def watch() -> str:
+        
     v_id = request.args.get("id")
     video.increase_views(v_id)
     vid = video.find_by_id(v_id)
@@ -79,7 +76,12 @@ def watch() -> str:
         cookies.append(tag)
     while len(cookies) > MAXIMUM_COOKIE_COUNT:
         cookies.pop(0)
-    print(cookies)
+
+    if (request.method == "GET"):
+        name = request.form.get("username")
+        msg = request.form.get("message")
+
+        vid.sendMsg(name, msg)
 
     response.set_cookie('watched videos', json.dumps(cookies))
     return response
