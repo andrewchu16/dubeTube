@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 import os
 import sys
 import video
@@ -47,6 +47,14 @@ def watch() -> str:
     v_id = request.args.get("id")
     print(video.find_by_id(v_id), file=sys.stdout)
     return render_template("video.html", vid=video.find_by_id(v_id))
+
+@app.route("/search", methods=["GET"])
+def search() -> str:
+    query = request.args.get("query")
+    if query:
+        return query
+    else:
+        return redirect()
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:

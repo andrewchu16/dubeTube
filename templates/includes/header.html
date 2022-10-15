@@ -5,8 +5,12 @@
                 <img class="logo-img" src="{{ url_for('static', filename='assets/logolong.png') }}">
             </a>
         </div>
-        <a>
-            <button>Sign up</button>
+        <form class="search-bar" action="/search" method="get">
+            <input type="text" placeholder="Search" name="query">
+            <input type="submit" value="???">
+        </form>
+        <a href="/upload">
+            <button class="upload-button">Upload</button>
         </a>
     </div>
 </div>
