@@ -36,4 +36,4 @@ __pycache__/*
 .env
 
 # qrcodes
-
+static/qrcode/*

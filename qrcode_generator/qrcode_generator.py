@@ -14,4 +14,4 @@ def generate_qrcode(url: str, id: str):
 
     img = qr.make_image(fill='black', back_color='white')
     img.save(f'static/qrcode/qrcode{id}.png')
-    return f'static/qecode/qrcode{id}.png'
+    return f'static/qrcode/qrcode{id}.png'
