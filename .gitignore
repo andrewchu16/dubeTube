@@ -38,3 +38,6 @@ __pycache__/*
 
 # qrcodes
 static/qrcode/*
+
+#audio files
+/classification/*.wav
