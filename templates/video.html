@@ -4,5 +4,6 @@
 <video controls>
     <source type="video/{{ vid.extension }}" src="static/video/{{vid.id}}.{{vid.extension}}">
 </video>
-<img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}"
+<img src="{{ qrcode_generator.generate_qrcode(request.url, vid.id) }}">
+Views: {{ vid.views }}
 {% endblock %}
