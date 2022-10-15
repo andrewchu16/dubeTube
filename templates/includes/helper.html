@@ -1,6 +1,13 @@
-{%- macro videoTile(title) -%}
-    <div>
-        <h1>{{title}}</h1>
+{%- macro videoTile(title, imageUrl='', videoLength='0:00', author='Author', postDate='0 seconds ago') -%}
+    <div class="video-tile">
+        <h1 class="video-title">{{ title }}</h1>
+        <div class="thumbnail-wrapper">
+            <img class="thumbnail-img" src="{{ imageUrl }}" alt="thumbnail"/>
+            <p class="video-length">{{ videoLength }}</p>
+        </div>
+        <div class="metadata-wrapper">
+            <p class="inline-block video-author">{{ author }}</p>
+            <p class="inline-block video-date">{{ postDate }}</p>
+        </div>
     </div>
-    <p>Heh</p>
 {%- endmacro %}
