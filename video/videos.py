@@ -1,10 +1,12 @@
 
 videos = []
 
+VIDEO_FOLDER = "/static/video/"
+
 class Video:
     def __init__(self: object, video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list):
         self.id = video_id
-        self.thumbnail = thumbnail
+        self.thumbnail = f"{VIDEO_FOLDER}{thumbnail}"
         self.extension = extension
         self.title = title
         self.author = author
@@ -14,8 +16,8 @@ class Video:
         self.dislikes = 0
         self.tags = tags
 
-def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str):
-    videos.append(Video(video_id, thumbnail, extension, title, author, date))
+def add_video(video_id: str, thumbnail: str, extension: str, title: str, author: str, date: str, tags: list):
+    videos.append(Video(video_id, thumbnail, extension, title, author, date, tags))
 
 def find_by_id(v_id: int):
     for video in videos:

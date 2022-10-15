@@ -1,18 +1,10 @@
-{% import 'includes/helper.html' as helper %}
+
 {% extends "default.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
 <div class="video-grid">
-    {{ helper.videoTile("title 1") }}
-    {{ helper.videoTile("title 2") }}
-    {{ helper.videoTile("title 3") }}
-    {{ helper.videoTile("title 4") }}
-    {{ helper.videoTile("title 5") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
-    {{ helper.videoTile("abcdefghijklmnopqrstuvwxyz") }}
+    {% for video in videos %}
+    {% include "includes/video-card.html" %}
+    {% endfor %}
 </div>
 {% endblock %}

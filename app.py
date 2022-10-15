@@ -5,13 +5,13 @@ import sys
 import video
 
 counter = 0 # thing to give each video a unique name
-VIDEO_FOLDER = "video"
+VIDEO_FOLDER = "static/video"
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index() -> str:
-    return render_template("index.html")
+    return render_template("index.html", videos=video.get_all_videos())
 
 @app.route("/upload", methods=["GET"])
 def upload() -> str:
@@ -36,10 +36,16 @@ def video_upload() -> str:
         extension,
         request.form["title"], # title
         request.form["author"], # author
-        date.today() # date
+        date.today(), # date
+        [] # add tags later
     )
     counter += 1
     return render_template("upload_success.html")
+
+@app.route("watch", methods=["GET"])
+def watch() -> str:
+    v_id = request.args.get("id")
+    return render_template("video.html" video=video.get.find_by_id(v_id))
 
 @app.errorhandler(404)
 def page_not_found(e) -> str:
