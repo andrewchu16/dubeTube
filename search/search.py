@@ -1,3 +1,15 @@
+## Cases
+##
+## SearchTextRatio(query, text) is negative
+## the text/title is shorter than the query, and thus text is not a valid title for the query
+##
+## SearchTextRatio(query, text) is one
+## the exact query is in the title
+##
+## the closer SearchTextRatio is to one, the higher the similarity
+## the larger SearchTextRatio is, the lower the similarity
+
+## searches if text contains the query
 def SearchText(query, text):
     n = len(query)+1
     m = len(text)+1
@@ -26,4 +38,4 @@ def SearchText(query, text):
 def SearchTextRatio(query, text):
     return len(query)/(len(text) - SearchText(query, text))
 
-print(SearchTextRatio(input(), "i love cats"))
+#print(SearchTextRatio(input(), "i love cats"))
