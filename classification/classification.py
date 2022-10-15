@@ -1,3 +1,4 @@
+from email.mime import audio
 import os
 import cohere
 import speech_recognition
@@ -50,7 +51,9 @@ def transcribe_audio(file_path):
     with speech_recognition.AudioFile(file_path) as audio_file:
         recognizer = speech_recognition.Recognizer()
         audio_data = recognizer.record(audio_file)
-        if (audio_data == None):
+        try:
+            auto_text = recognizer.recognize_google(audio_data)
+        except:
+            # there is no audio
             return ""
-        auto_text = recognizer.recognize_google(audio_data)
         return auto_text
