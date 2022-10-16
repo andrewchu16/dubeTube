@@ -4,3 +4,4 @@ SpeechRecognition
 python-dotenv
 moviepy
 qrcode[pil]
+gunicorn==19.3.0
