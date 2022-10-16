@@ -20,7 +20,7 @@ body {
     background-color: var(--htv-dark-purple);
 }
 
-button {
+button, [type="submit"] {
     cursor: pointer;
     transition: 0.2s ease;
 }
