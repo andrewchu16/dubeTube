@@ -62,7 +62,7 @@ def video_upload() -> str:
             summary
         )
         counter += 1
-        return render_template("upload_success.html")
+        return redirect(url_for("watch", id=(counter - 1)))
     return render_template("upload_fail.html")
 
 @app.route("/watch", methods=["GET", "POST"])
